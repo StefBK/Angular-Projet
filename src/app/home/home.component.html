@@ -1,15 +1,29 @@
 <section class="container-fluid">
     <div class="row">
         <div class="col">
-            <H2>HOME</H2>
+            <H2>{{title}}</H2>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
-            <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg" alt="Page de Code" class="img-fluid">
+            <img [src]="'assets/images/'+sourceImg" alt="Page de Code" class="img-fluid" (click)="changeImage()">
         </div>
         <div class="col-12 col-md-6">
-            <H2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quod quibusdam rerum quas facilis perferendis, deserunt veritatis iure eum eius officia sapiente distinctio praesentium error neque esse accusantium? Earum, quam voluptatem amet ipsa quos laudantium. Illo fugiat tenetur, expedita alias nihil quis ratione illum saepe, magnam libero, corrupti vero quidem numquam officia quos accusamus inventore sapiente eveniet? Quidem impedit est eaque aspernatur nobis unde eius deserunt ad molestiae. Natus nemo saepe suscipit architecto quas, repellendus minus eveniet facere porro quia, fugit eius doloribus earum ratione similique, sit ullam aspernatur! Possimus voluptatem esse alias, voluptate eius hic eum minus nobis ipsum. Quasi reiciendis adipisci et itaque cupiditate velit? Tenetur impedit qui ipsa recusandae tempora debitis velit nihil eos dolores amet rerum, veniam beatae possimus vero aut?</H2>
+            <div [ngSwitch]="2">
+                <p *ngSwitchCase="1">C'est 1 le CASE</p>
+                <p *ngSwitchCase="2">C'est 2 le CASE</p>
+                <p *ngSwitchCase="3">C'est 3 le CASE</p>
+            </div>
+            <ol>
+                <li *ngFor="let img of jsonImg">
+                    <img width="50" [src]="'assets/images/'+img.url" [alt]="img.alt">
+                    {{img.url}}
+                </li>
+            </ol>
+            <p *ngIf="2>1; else otherParag">CECI EST AFFICHÉ SOUS CONDITION</p>
+            <ng-template #otherParag><p>MON AUTRE PARAGRAPHE</p></ng-template>
+            <p [ngStyle]="{'display':myProp,'color':'red'}" (click)="myProp='none'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quod quibusdam rerum quas facilis perferendis, deserunt veritatis iure eum eius officia sapiente distinctio praesentium error neque esse accusantium?</p>
+            <p [ngClass]="{'text-primary':myValue}" (click)="myValue=!myValue">Earum, quam voluptatem amet ipsa quos laudantium. Illo fugiat tenetur, expedita alias nihil quis ratione illum saepe, magnam libero, corrupti vero quidem numquam officia quos accusamus inventore sapiente eveniet?</p>
         </div>
     </div>
 </section>
