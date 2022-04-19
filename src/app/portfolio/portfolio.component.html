@@ -1,13 +1,33 @@
 <section class="container-fluid">
     <div class="row">
         <div class="col">
-            <h2>PORTFOLIO</h2>
+            <h2 id="top">PORTFOLIO</h2>
             <h3>Here is a Chuck Norris Joke:</h3>
             <p *ngIf="jokeNotFound; else jokeFound">Chuck Norris is sad today, no joke has been found...</p>
             <ng-template #jokeFound>
               <p>{{joke?.value}}</p>
             </ng-template>
         </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <!-- <li class="page-item disabled"> -->
+            <li class="page-item" [ngClass]="{'disabled':page==1}">
+              <a class="page-link" role="button" (click)="loadPics('prev')">Previous</a>
+            </li>
+            <li *ngIf="page>2" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-2)">{{page-2}}</a></li>
+            <li *ngIf="page>1" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-1)">{{page-1}}</a></li>
+            <li class="page-item active"><a class="page-link" role="button" (click)="loadPics('',page)">{{page}}</a></li>
+            <li class="page-item" role="button" (click)="loadPics('',page+1)"><a class="page-link">{{page+1}}</a></li>
+            <li class="page-item" role="button" (click)="loadPics('',page+2)"><a class="page-link">{{page+2}}</a></li>
+            <li class="page-item">
+              <a class="page-link" role="button" (click)="loadPics('next')">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <div class="row">
         <div *ngFor="let pic of gallery" class="col-12 col-md-4 mb-2">
@@ -47,13 +67,15 @@
           <ul class="pagination justify-content-center">
             <!-- <li class="page-item disabled"> -->
             <li class="page-item" [ngClass]="{'disabled':page==1}">
-              <a class="page-link" role="button" (click)="prevPage()">Previous</a>
+              <a class="page-link" role="button" (click)="loadPics('prev')">Previous</a>
             </li>
-            <li class="page-item active"><a class="page-link" role="button" (click)="goToPage(page)">{{page}}</a></li>
-            <li class="page-item" role="button" (click)="goToPage(page+1)"><a class="page-link">{{page+1}}</a></li>
-            <li class="page-item" role="button" (click)="goToPage(page+2)"><a class="page-link">{{page+2}}</a></li>
+            <li *ngIf="page>2" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-2)">{{page-2}}</a></li>
+            <li *ngIf="page>1" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-1)">{{page-1}}</a></li>
+            <li class="page-item active"><a class="page-link" role="button" (click)="loadPics('',page)">{{page}}</a></li>
+            <li class="page-item" role="button" (click)="loadPics('',page+1)"><a class="page-link">{{page+1}}</a></li>
+            <li class="page-item" role="button" (click)="loadPics('',page+2)"><a class="page-link">{{page+2}}</a></li>
             <li class="page-item">
-              <a class="page-link" role="button" (click)="nextPage()">Next</a>
+              <a class="page-link" role="button" (click)="loadPics('next')">Next</a>
             </li>
           </ul>
         </nav>
