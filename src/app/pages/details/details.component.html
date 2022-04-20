@@ -1,1 +1,49 @@
-<h1>{{itemInfo?.author}}</h1>
+<!-- <h1>{{itemInfo?.author}}</h1>
+<p>{{itemInfo?.width}}</p>
+<p>{{itemInfo?.height}}</p>
+<p>{{itemInfo?.download_url}}</p>
+<p>{{itemInfo?.id}}</p>
+<p>{{itemId}}</p>
+Même résultat lignes 5 et 6
+<img [src]="'https://picsum.photos/id/'+itemId+'/1280/960'" [alt]="'Picture from '+itemInfo?.author">
+<img [src]="'https://picsum.photos/id/'+itemId+'/1280/960?blur=10'" [alt]="'Blur'">
+<img [src]="'https://picsum.photos/id/'+itemId+'/1280/960?grayscale'" [alt]="'Grayscale'">
+<section class="container-fluid">
+    <div class="card col-12 col-md-12" style="width: 18rem;">
+        <img [src]="'https://picsum.photos/id/'+itemId" [alt]="'Picture from '+itemInfo?.author">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+</section> -->
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>This picture is from {{itemInfo?.author}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <img class="img-fluid" [src]="imgSrc" [alt]="'Picture from '+itemInfo?.author">
+            <div class="card-body">
+                <h5 class="card-title">Author : {{itemInfo?.author}}</h5>
+                <p>Max Image Width : {{itemInfo?.width}}</p>
+                <p>Max Image Height : {{itemInfo?.height}}</p>
+                <p>Download Url : {{itemInfo?.download_url}}</p>
+                <p>Item Id : {{itemInfo?.id}}</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a (click)="grayscale()" class="btn btn-primary">
+                    <span *ngIf="!gray">Gray Scale ?</span>
+                    <span *ngIf="gray">Color ?</span>
+                </a>
+                <a (click)="addBlur()" class="btn btn-primary m-2">
+                    Add Some Blur ? {{blur}}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- container-fluid en bootstrap extensible s'adapte à la taille -->
