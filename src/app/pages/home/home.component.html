@@ -22,6 +22,9 @@
             </ol>
             <p *ngIf="2>1; else otherParag">CECI EST AFFICHÉ SOUS CONDITION</p>
             <ng-template #otherParag><p>MON AUTRE PARAGRAPHE</p></ng-template>
+
+            <!-- <button (click)="api.monAlert()">ALERT !</button> -->
+
             <p [ngStyle]="{'display':myProp,'color':'red'}" (click)="myProp='none'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quod quibusdam rerum quas facilis perferendis, deserunt veritatis iure eum eius officia sapiente distinctio praesentium error neque esse accusantium?</p>
             <p [ngClass]="{'text-primary':myValue}" (click)="myValue=!myValue">Earum, quam voluptatem amet ipsa quos laudantium. Illo fugiat tenetur, expedita alias nihil quis ratione illum saepe, magnam libero, corrupti vero quidem numquam officia quos accusamus inventore sapiente eveniet?</p>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  // constructor(public api:ApiService) { }
+  
+  // truc=this.api.propriete;
+  
   title = "HOME";
   arrayImg = ['Nature01.jpg', 'Nature02.jpg', 'Nature03.jpg'];
   jsonImg = [
@@ -46,6 +50,7 @@ export class HomeComponent implements OnInit {
     // console.log(this.randomIndex);
     // console.log(this.arrayImg[this.randomIndex]);
     this.changeImage();
+    // console.log(this.truc);
   }
 
 }
