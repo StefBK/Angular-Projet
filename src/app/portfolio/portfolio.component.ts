@@ -15,7 +15,8 @@ export class PortfolioComponent implements OnInit {
   jokeNotFound=true;
   gallery:any;
   page=1;
-  urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+  // urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+  urlPicsum='';
   urlChuck='https://api.chucknorris.io/jokes/random';
 
   // prevPage(){

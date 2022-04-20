@@ -32,7 +32,9 @@
     <div class="row">
         <div *ngFor="let pic of gallery" class="col-12 col-md-4 mb-2">
             <div class="card">
+              <a [routerLink]="'/portfolio/'+pic.id">
                 <img [src]="'https://picsum.photos/id/'+pic.id+'/640/480'" class="card-img-top" [alt]="'Picture from '+pic.author">
+              </a>
                 <div class="card-body">
                   <h5 class="card-title">Picture from {{pic.author}}</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
