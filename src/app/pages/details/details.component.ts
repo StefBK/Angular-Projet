@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
     //   null;
     // }
     this.blur>0? this.imgSrc +='blur='+this.blur+'&':null;
-    console.log('New Source :', this.imgSrc);
+    // console.log('New Source :', this.imgSrc);
   }
 
   grayscale(){
@@ -52,7 +52,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     // On récupère l'id dans la route active
     this.itemId=this.route.snapshot.params['itemId'];
-    console.log('itemId:',this.itemId);
+    // console.log('itemId:',this.itemId);
     // On charge les données correspondantes de l'image
     // this.http.get('https://picsum.photos/id/'+this.itemId+'/info').subscribe(
     // this.api.getUrl('https://picsum.photos/id/'+this.itemId+'/info').subscribe(
@@ -65,5 +65,4 @@ export class DetailsComponent implements OnInit {
         ;}
     );
   }
-
 }

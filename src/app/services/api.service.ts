@@ -11,7 +11,9 @@ export class ApiService {
 
   urlChuck='https://api.chucknorris.io/jokes/random';
 
-  urlPicsum='https://picsum.photos'
+  urlPicsum='https://picsum.photos';
+
+  urlPodek='https://dekpo.com/api/public/pictures/list?page=4&limite=6';
 
   // propriete="Hello";
 

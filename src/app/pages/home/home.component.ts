@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { ApiService } from 'src/app/services/api.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public settings:SettingsService) { }
   // constructor(public api:ApiService) { }
   
   // truc=this.api.propriete;
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
   randomIndex = 0;
   sourceImg = '';
   compteur = 0;
-  myColor = 'red';
+  // myColor = 'red';
   myProp = 'block';
   myValue = false;
   myAlert(msg: string) {
@@ -42,8 +43,8 @@ export class HomeComponent implements OnInit {
     this.randomIndex = Math.floor(Math.random() * 3);
     this.sourceImg = this.arrayImg[this.randomIndex];
     this.compteur++;
-    console.log('Nombre de changement de source:', this.compteur);
-    console.log('La nouvelle source est : ', this.sourceImg);
+    // console.log('Nombre de changement de source:', this.compteur);
+    // console.log('La nouvelle source est : ', this.sourceImg);
   };
 
   ngOnInit(): void {
@@ -51,6 +52,8 @@ export class HomeComponent implements OnInit {
     // console.log(this.arrayImg[this.randomIndex]);
     this.changeImage();
     // console.log(this.truc);
+
+    this.settings.displayCarousel=true;
   }
 
 }
