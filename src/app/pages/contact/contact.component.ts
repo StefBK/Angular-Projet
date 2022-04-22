@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings.service';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +10,11 @@ import { SettingsService } from 'src/app/services/settings.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(public settings:SettingsService) { }
+  constructor(
+    public settings:SettingsService,
+    public http:HttpClient,
+    public router:Router
+    ) { }
 
   firstname ='';
   lastname='';
@@ -33,6 +39,18 @@ export class ContactComponent implements OnInit {
 
     if(validation){
       console.log("Formulaire correctement renseigné !", formData);
+
+    const headers= new HttpHeaders().set('Content-Type','application:x-www-form-urlencode');
+
+      this.http.post("https://httpbin.org/post",formData, {headers}).subscribe(
+        response => {
+          console.log('Le serveur nous répond !', response);
+          // window.location.href="https://google.fr";
+          // this.router.navigateByUrl('/portfolio');
+          // window.open('https://google.fr','_blank');
+          this.router.navigateByUrl('/');
+        }
+      )
     }
     else{
       alert('Oops, an error occured!\n'+errorMessage);

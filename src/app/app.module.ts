@@ -14,6 +14,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     PortfolioComponent,
     ContactComponent,
     DetailsComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
