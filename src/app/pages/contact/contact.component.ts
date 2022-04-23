@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
     if(validation){
       console.log("Formulaire correctement renseigné !", formData);
 
-    const headers= new HttpHeaders().set('Content-Type','application:x-www-form-urlencode');
+      const headers= new HttpHeaders().set('Content-Type','application:x-www-form-urlencode');
 
       this.http.post("https://httpbin.org/post",formData, {headers}).subscribe(
         response => {
@@ -48,7 +48,7 @@ export class ContactComponent implements OnInit {
           // window.location.href="https://google.fr";
           // this.router.navigateByUrl('/portfolio');
           // window.open('https://google.fr','_blank');
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/thanks');
         }
       )
     }
