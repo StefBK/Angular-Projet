@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public formBuilder:FormBuilder,
-    public http:HttpClient){}
+    public http:HttpClient,
+    public settings:SettingsService
+    ){}
 
   loginForm=new FormGroup({
     user: new FormControl(''),
@@ -33,6 +36,8 @@ export class LoginComponent implements OnInit {
       user:['',[Validators.required,Validators.minLength(3)]],
       password:['',[Validators.required,Validators.minLength(5)]],
     })
+
+    this.settings.displayCarousel=false;
   }
 
 }
